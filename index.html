@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Form Designer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel: Controls -->
+        <div class="controls">
+            <button onclick="addElement('input')">Add Input</button>
+            <button onclick="addElement('select')">Add Select</button>
+            <button onclick="addElement('textarea')">Add Textarea</button>
+            <button onclick="addElement('checkbox')">Add Checkbox</button>
+            <button onclick="saveForm()">Save Form</button>
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="previewForm()">Preview Form</button>
+        </div>
+        
+        <!-- Center Panel: Form Builder -->
+        <div id="form-builder" class="form-builder"></div>
+        
+        <!-- Right Panel: Edit Properties -->
+        <div class="editor">
+            <h3>Edit Element</h3>
+            <label for="edit-label">Label:</label>
+            <input type="text" id="edit-label" oninput="updateElement('label')">
+            <label for="edit-placeholder">Placeholder:</label>
+            <input type="text" id="edit-placeholder" oninput="updateElement('placeholder')">
+            <div id="select-options">
+                <h4>Options</h4>
+                <ul id="option-list"></ul>
+                <button onclick="addOption()">Add Option</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreview()">&times;</span>
+            <h2>Form Preview</h2>
+            <div id="preview-container"></div>
+            <button onclick="copyHTML()">Copy HTML</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
